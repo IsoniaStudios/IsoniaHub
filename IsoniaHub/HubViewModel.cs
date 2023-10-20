@@ -7,7 +7,7 @@ namespace IsoniaHub;
 public class HubViewModel : ViewModelBase
 {
     private static readonly Version? version = Assembly.GetEntryAssembly()?.GetName().Version;
-    private static readonly string? title = Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
+    private static readonly string? title = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
 
     public Version? Version => version;
     public new string? Title => title;
