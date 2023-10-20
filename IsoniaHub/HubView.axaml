@@ -17,15 +17,33 @@
 		
 		WindowStartupLocation="CenterScreen"
 
-		Title="Isonia Hub">
+		Title="{Binding Title, Mode=OneTime}">
 
-	<DockPanel LastChildFill="True">
-		<Border Width="240" BorderBrush="Wheat" BorderThickness="0" DockPanel.Dock="Left">
-			<!--<TextBlock>red</TextBlock>-->
+	<Grid RowDefinitions="33, *">
+		<Border BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
+			    BorderThickness="0,0,0,1"
+				Padding="10" >
+			<TextBlock Foreground="{StaticResource Foreground-1-SolidColorBrush}"
+					   VerticalAlignment="Center"
+					   FontWeight="Medium">
+				<Run Text="{Binding Title, Mode=OneTime}"/>
+				<Run Text="{Binding Version, Mode=OneTime, Converter={StaticResource VersionConverter}, ConverterParameter=3}"/>
+			</TextBlock>
 		</Border>
-		<Border BorderBrush="Wheat" BorderThickness="0">
-			<!--<TextBlock>red</TextBlock>-->
-		</Border>
-	</DockPanel>
+
+		<DockPanel LastChildFill="True" Grid.Row="1">
+			<Border Background="{StaticResource Background-1-SolidColorBrush}"
+					BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
+					BorderThickness="0,0,1,0"
+					DockPanel.Dock="Left"
+					Width="240">
+				<!--<TextBlock>red</TextBlock>-->
+			</Border>
+			<Border BorderBrush="Wheat" BorderThickness="0">
+				<!--<TextBlock>red</TextBlock>-->
+			</Border>
+		</DockPanel>
+	</Grid>
+	
 
 </Window>

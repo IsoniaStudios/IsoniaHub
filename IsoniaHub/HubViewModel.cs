@@ -1,18 +1,15 @@
 ﻿using IsoniaCore.ViewModels;
+using System;
 using System.Reflection;
 
 namespace IsoniaHub;
 
 public class HubViewModel : ViewModelBase
 {
-    private static string version = Assembly.GetEntryAssembly()?.GetName().Version.ToString();
-    public string Version => version;
-
-    public bool Visible => true;
+    public Version? Version => Assembly.GetEntryAssembly()?.GetName().Version;
+    public new string? Title => Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
 
     public HubViewModel()
     {
-        Title = "Isonia Hub";
-
     }
 }

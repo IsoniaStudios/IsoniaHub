@@ -3,6 +3,7 @@
 			 xmlns:local="clr-namespace:IsoniaHub"
              x:Class="IsoniaHub.App">
     <Application.Styles>
+		<SimpleTheme />
 		<StyleInclude Source="avares://IsoniaCore/Resources/Controls.axaml" />
 	</Application.Styles>
 	

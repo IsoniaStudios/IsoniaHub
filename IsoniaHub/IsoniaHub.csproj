@@ -6,6 +6,8 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+	<AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,11 +21,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IsoniaCore\IsoniaCore.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="HubView.axaml.cs">
-      <DependentUpon>HubView.axaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
