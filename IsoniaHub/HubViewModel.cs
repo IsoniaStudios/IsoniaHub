@@ -6,8 +6,11 @@ namespace IsoniaHub;
 
 public class HubViewModel : ViewModelBase
 {
-    public Version? Version => Assembly.GetEntryAssembly()?.GetName().Version;
-    public new string? Title => Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
+    private static readonly Version? version = Assembly.GetEntryAssembly()?.GetName().Version;
+    private static readonly string? title = Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
+
+    public Version? Version => version;
+    public new string? Title => title;
 
     public HubViewModel()
     {
