@@ -15,7 +15,14 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow();
+            // Create an instance of HubViewModel
+            HubViewModel hubViewModel = new();
+
+            // Create an instance of the view
+            HubView hubView = new(hubViewModel);
+
+            // Set the MainWindow of the appication
+            desktop.MainWindow = hubView;
         }
 
         base.OnFrameworkInitializationCompleted();
