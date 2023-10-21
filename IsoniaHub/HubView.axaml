@@ -13,19 +13,24 @@
 
 		ExtendClientAreaToDecorationsHint="True"
 		ExtendClientAreaChromeHints="PreferSystemChrome"
-		ExtendClientAreaTitleBarHeightHint="32"
+		ExtendClientAreaTitleBarHeightHint="40"
 		
 		WindowStartupLocation="CenterScreen"
 
 		Title="{Binding Title, Mode=OneTime}">
-
+	
+	<Window.Styles>
+		<Style Selector="Window[WindowState=Maximized]">
+			<Setter Property="Padding" Value="8" />
+		</Style>
+	</Window.Styles>
+	
 	<Grid RowDefinitions="33, *">
 		<Border BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
 			    BorderThickness="0,0,0,1"
 				Padding="10" >
-			<TextBlock Foreground="{StaticResource Foreground-1-SolidColorBrush}"
-					   VerticalAlignment="Center"
-					   FontWeight="Medium">
+			<TextBlock Classes="Secondary"
+					   VerticalAlignment="Center">
 				<Run Text="{Binding Title, Mode=OneTime}"/>
 				<Run Text="{Binding Version, Mode=OneTime, Converter={StaticResource VersionConverter}, ConverterParameter=3}"/>
 			</TextBlock>
@@ -44,6 +49,5 @@
 			</Border>
 		</DockPanel>
 	</Grid>
-	
 
 </Window>
