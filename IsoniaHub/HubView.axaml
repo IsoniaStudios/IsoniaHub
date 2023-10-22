@@ -8,8 +8,8 @@
 		x:Class="IsoniaHub.HubView"
         x:DataType="local:HubViewModel"
 
-		MinWidth="1024" MinHeight="576"
-		Width="1024" Height="576"
+		MinWidth="1008" MinHeight="537"
+		Width="1008" Height="537"
 
 		ExtendClientAreaToDecorationsHint="True"
 		ExtendClientAreaChromeHints="PreferSystemChrome"
@@ -18,7 +18,7 @@
 		WindowStartupLocation="CenterScreen"
 
 		Title="{Binding Title, Mode=OneTime}">
-	
+		
 	<Window.Styles>
 		<Style Selector="Window[WindowState=Maximized]">
 			<Setter Property="Padding" Value="8" />
@@ -29,7 +29,8 @@
 		<Border BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
 			    BorderThickness="0,0,0,1"
 				Padding="10" >
-			<TextBlock Classes="Secondary"
+			<TextBlock Theme="{StaticResource Title}"
+					   Classes="Secondary H8"
 					   VerticalAlignment="Center">
 				<Run Text="{Binding Title, Mode=OneTime}"/>
 				<Run Text="{Binding Version, Mode=OneTime, Converter={StaticResource VersionConverter}, ConverterParameter=3}"/>
@@ -41,12 +42,11 @@
 					BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
 					BorderThickness="0,0,1,0"
 					DockPanel.Dock="Left"
-					Width="240">
-				<!--<TextBlock>red</TextBlock>-->
+					Width="256"
+					Padding="12">
+				<ListBox ItemsSource="{Binding Tabs, Mode=OneTime}" SelectedItem="{Binding SelectedTab}" />
 			</Border>
-			<Border BorderBrush="Wheat" BorderThickness="0">
-				<!--<TextBlock>red</TextBlock>-->
-			</Border>
+			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}" Padding="24"/>
 		</DockPanel>
 	</Grid>
 

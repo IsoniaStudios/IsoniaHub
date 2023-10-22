@@ -1,6 +1,11 @@
-﻿using IsoniaCore.DataTypes;
+﻿using System.Collections.ObjectModel;
 using System.Reflection;
+using System.Linq;
 using System;
+using IsoniaCore.ViewModels;
+using IsoniaCore.DataTypes;
+using IsoniaHub.Projects;
+using IsoniaHub.Editors;
 
 namespace IsoniaHub;
 
@@ -12,7 +17,17 @@ public class HubViewModel : Observable
     public Version? Version => version;
     public string? Title => title;
 
+    private ViewModelBase selectedTab;
+    public ViewModelBase SelectedTab { get => selectedTab; set => OnPropertyChanged(ref selectedTab, value); }
+    public ObservableCollection<ViewModelBase> Tabs { get; }
+
     public HubViewModel()
     {
+        Tabs = new ObservableCollection<ViewModelBase>()
+        {
+            new ProjectsViewModel(),
+            new EditorsViewModel()
+        };
+        SelectedTab = Tabs.First();
     }
 }
