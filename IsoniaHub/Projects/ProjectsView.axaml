@@ -6,10 +6,11 @@
 			 mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="576"
 		
  			 x:Class="IsoniaHub.Projects.ProjectsView"
-			 x:DataType="local:ProjectsViewModel">
-		
-	<Grid RowDefinitions="33, *">
-		
-	</Grid>
+			 x:DataType="local:ProjectsViewModel"
+			 x:CompileBindings="True">
+	
+	<StackPanel>
+		<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
+	</StackPanel>
 
 </UserControl>
