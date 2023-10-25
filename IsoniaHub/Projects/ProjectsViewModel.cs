@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using IsoniaCore.Resources.Icons;
 using IsoniaCore.ViewModels;
 
 namespace IsoniaHub.Projects;
@@ -10,5 +11,6 @@ public class ProjectsViewModel : ViewModelBase
     public ProjectsViewModel()
     {
         Title = "Projects";
+        Icon = Icons.CopyIcon;
     }
 }

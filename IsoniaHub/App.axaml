@@ -1,10 +1,10 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 
+			 xmlns:ViewModels="clr-namespace:IsoniaCore.ViewModels;assembly=IsoniaCore"
+			 xmlns:Controls="clr-namespace:IsoniaCore.Resources.Controls;assembly=IsoniaCore"
 			 xmlns:local="clr-namespace:IsoniaHub"
-			 xmlns:Projects="clr-namespace:IsoniaHub.Projects"
-			 xmlns:Editors="clr-namespace:IsoniaHub.Editors"
-
+			 
 			 x:CompileBindings="True"
 			 x:Class="IsoniaHub.App">
     <Application.Styles>
@@ -15,6 +15,7 @@
 	<Application.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="avares://IsoniaCore/Resources/Icons.axaml" />
 				<ResourceInclude Source="avares://IsoniaCore/Resources/Accents.axaml" />
 				<ResourceInclude Source="avares://IsoniaCore/Resources/Converters.axaml" />
 			</ResourceDictionary.MergedDictionaries>
@@ -22,11 +23,8 @@
 	</Application.Resources>
 
 	<Application.DataTemplates>
-		<DataTemplate DataType="{x:Type Projects:ProjectsViewModel}">
-			<Projects:ProjectsView/>
-		</DataTemplate>
-		<DataTemplate DataType="{x:Type Editors:EditorsViewModel}">
-			<Editors:EditorsView/>
+		<DataTemplate DataType="{x:Type ViewModels:ViewModelBase}">
+			<Controls:ViewModelBaseIdentifier/>
 		</DataTemplate>
 	</Application.DataTemplates>
 </Application>

@@ -4,7 +4,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:IsoniaHub"
 		mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="576"
-		
+				
+		xmlns:Projects="clr-namespace:IsoniaHub.Projects"
+		xmlns:Editors="clr-namespace:IsoniaHub.Editors"
+
 		x:Class="IsoniaHub.HubView"
         x:DataType="local:HubViewModel"
 		x:CompileBindings="True"
@@ -47,7 +50,16 @@
 					Padding="12">
 				<ListBox ItemsSource="{Binding Tabs, Mode=OneTime}" SelectedItem="{Binding SelectedTab}" />
 			</Border>
-			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}" Padding="24"/>
+			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}" Padding="24">
+				<ContentControl.DataTemplates>
+					<DataTemplate DataType="{x:Type Projects:ProjectsViewModel}">
+						<Projects:ProjectsView/>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type Editors:EditorsViewModel}">
+						<Editors:EditorsView/>
+					</DataTemplate>
+				</ContentControl.DataTemplates>
+			</ContentControl>
 		</DockPanel>
 	</Grid>
 
