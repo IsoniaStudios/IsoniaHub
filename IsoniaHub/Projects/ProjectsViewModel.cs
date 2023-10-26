@@ -11,6 +11,6 @@ public class ProjectsViewModel : ViewModelBase
     public ProjectsViewModel()
     {
         Title = "Projects";
-        Icon = Icons.CopyIcon;
+        Icon = IconStore.ProjectIcon;
     }
 }

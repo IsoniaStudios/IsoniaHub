@@ -11,8 +11,8 @@ namespace IsoniaHub;
 
 public class HubViewModel : Observable
 {
-    private static readonly Version? version = Assembly.GetEntryAssembly()?.GetName().Version;
-    private static readonly string? title = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
+    private static readonly Version? version = Assembly.GetExecutingAssembly()?.GetName().Version;
+    private static readonly string? title = Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyTitleAttribute>()?.Title;
 
     public Version? Version => version;
     public string? Title => title;

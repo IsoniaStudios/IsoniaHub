@@ -9,6 +9,10 @@
 			 x:DataType="local:EditorsViewModel"
 			 x:CompileBindings="True">
 
+	<Design.DataContext>
+		<local:EditorsViewModel />
+	</Design.DataContext>
+	
 	<StackPanel>
 		<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 	</StackPanel>

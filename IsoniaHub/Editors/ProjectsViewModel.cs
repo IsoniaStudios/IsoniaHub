@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using IsoniaCore.ViewModels;
 using Microsoft.Win32;
+using IsoniaCore.Resources.Icons;
+using IsoniaCore.ViewModels;
 
 namespace IsoniaHub.Editors;
 
@@ -15,6 +16,7 @@ public class EditorsViewModel : ViewModelBase
     public EditorsViewModel()
     {
         Title = "Editors";
+        Icon = IconStore.InstallIcon;
         editors.AddRange(SearchForEditors());
     }
 

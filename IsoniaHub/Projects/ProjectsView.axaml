@@ -8,7 +8,11 @@
  			 x:Class="IsoniaHub.Projects.ProjectsView"
 			 x:DataType="local:ProjectsViewModel"
 			 x:CompileBindings="True">
-	
+
+	<Design.DataContext>
+		<local:ProjectsViewModel />
+	</Design.DataContext>
+
 	<StackPanel>
 		<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 	</StackPanel>

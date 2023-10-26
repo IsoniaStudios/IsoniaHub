@@ -22,7 +22,11 @@
 		WindowStartupLocation="CenterScreen"
 
 		Title="{Binding Title, Mode=OneTime}">
-		
+
+	<Design.DataContext>
+		<local:HubViewModel />
+	</Design.DataContext>
+
 	<Window.Styles>
 		<Style Selector="Window[WindowState=Maximized]">
 			<Setter Property="Padding" Value="8" />
