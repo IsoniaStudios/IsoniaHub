@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:IsoniaHub"
-		mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="576"
+		mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="360"
 				
 		xmlns:Projects="clr-namespace:IsoniaHub.Projects"
 		xmlns:Editors="clr-namespace:IsoniaHub.Editors"
@@ -12,11 +12,11 @@
         x:DataType="local:HubViewModel"
 		x:CompileBindings="True"
 
-		MinWidth="1008" MinHeight="537"
+		MinWidth="624" MinHeight="321"
 		Width="1008" Height="537"
 
-		ExtendClientAreaToDecorationsHint="True"
 		ExtendClientAreaChromeHints="PreferSystemChrome"
+		ExtendClientAreaToDecorationsHint="True"
 		ExtendClientAreaTitleBarHeightHint="40"
 		
 		WindowStartupLocation="CenterScreen"
@@ -50,11 +50,11 @@
 					BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
 					BorderThickness="0,0,1,0"
 					DockPanel.Dock="Left"
-					Width="256"
+					Width="216"
 					Padding="12">
 				<ListBox ItemsSource="{Binding Tabs, Mode=OneTime}" SelectedItem="{Binding SelectedTab}" />
 			</Border>
-			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}" Padding="24">
+			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}" Padding="16">
 				<ContentControl.DataTemplates>
 					<DataTemplate DataType="{x:Type Projects:ProjectsViewModel}">
 						<Projects:ProjectsView/>
