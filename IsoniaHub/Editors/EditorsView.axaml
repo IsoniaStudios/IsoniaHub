@@ -7,7 +7,10 @@
 		
  			 x:Class="IsoniaHub.Editors.EditorsView"
 			 x:DataType="local:EditorsViewModel"
-			 x:CompileBindings="True">
+			 x:CompileBindings="True"
+			 
+			 DragDrop.AllowDrop="True"
+			 Background="Transparent">
 
 	<Design.DataContext>
 		<local:EditorsViewModel />
@@ -18,7 +21,8 @@
 			<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-				<Button Content="Locate" Classes="" Margin="8,0"/>
+				<Button Content="Locate" Classes="" Margin="8,0"
+						Command="{Binding LocateCommand}"/>
 				<Button Content="Install Editor" Theme="{StaticResource SolidButton}" Classes=""/>
 			</StackPanel>
 		</Grid>
