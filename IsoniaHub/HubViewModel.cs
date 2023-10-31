@@ -28,6 +28,6 @@ public class HubViewModel : Observable
             new ProjectsViewModel(),
             new EditorsViewModel()
         };
-        SelectedTab = Tabs.First();
+        selectedTab = Tabs.First();
     }
 }

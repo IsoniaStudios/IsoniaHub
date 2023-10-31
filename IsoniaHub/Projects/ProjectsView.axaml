@@ -14,7 +14,14 @@
 	</Design.DataContext>
 
 	<StackPanel>
-		<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
+		<Grid>
+			<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+				<Button Content="Open" Classes="" Margin="8,0"/>
+				<Button Content="New Project" Theme="{StaticResource SolidButton}" Classes=""/>
+			</StackPanel>
+		</Grid>
 	</StackPanel>
 
 </UserControl>
