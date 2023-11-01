@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 using IsoniaCore.Resources.Icons;
 using IsoniaCore.ViewModels;
 using IsoniaCore.DataTypes;
-using System;
 
 namespace IsoniaHub.Editors;
 
@@ -14,6 +14,11 @@ public class EditorsViewModel : ViewModelBase
     private readonly List<Editor> editors = new();
 
     public ObservableCollection<Editor> Editors  { get; } = new();
+
+    public RelayCommand InstallCommand { get; }
+    private void Install(object? _)
+    {
+    }
 
     public RelayCommand LocateCommand { get; }
     private void Locate(object? _)
@@ -32,6 +37,7 @@ public class EditorsViewModel : ViewModelBase
         Icon = IconStore.InstallIcon;
 
         LocateCommand = new RelayCommand(Locate);
+        InstallCommand = new RelayCommand(Install);
 
         // Dispatch a search for installed editors
         Task.Run(SearchForEditors);

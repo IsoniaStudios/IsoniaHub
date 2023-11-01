@@ -15,8 +15,13 @@ public class ProjectsViewModel : ViewModelBase
 
     public ObservableCollection<Project> Projects { get; } = new();
 
-    public RelayCommand LocateCommand { get; }
-    private void Locate(object? _)
+    public RelayCommand NewCommand { get; }
+    private void New(object? _)
+    {
+    }
+
+    public RelayCommand OpenCommand { get; }
+    private void Open(object? _)
     {
         // open somthing idk
         AddFromPath(null);
@@ -31,7 +36,8 @@ public class ProjectsViewModel : ViewModelBase
         Title = "Projects";
         Icon = IconStore.ProjectIcon;
 
-        LocateCommand = new RelayCommand(Locate);
+        OpenCommand = new RelayCommand(Open);
+        NewCommand = new RelayCommand(New);
 
         // Dispatch a search for already added projects
         Task.Run(SearchForProjects);
@@ -39,6 +45,6 @@ public class ProjectsViewModel : ViewModelBase
 
     private void SearchForProjects()
     {
-
+        projects.Add(new Project {  });
     }
 }

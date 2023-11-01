@@ -17,15 +17,20 @@
 	</Design.DataContext>
 
 	<StackPanel>
-		<Grid>
+		<Panel>
 			<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
 				<Button Content="Locate" Classes="" Margin="8,0"
 						Command="{Binding LocateCommand}"/>
-				<Button Content="Install Editor" Theme="{StaticResource SolidButton}" Classes=""/>
+				<Button Content="Install Editor" Theme="{StaticResource SolidButton}"
+						Command="{Binding InstallCommand}"/>
 			</StackPanel>
-		</Grid>
+		</Panel>
+
+		<ItemsPresenter>
+			
+		</ItemsPresenter>
 	</StackPanel>
 
 

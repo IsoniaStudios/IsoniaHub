@@ -7,21 +7,30 @@
 		
  			 x:Class="IsoniaHub.Projects.ProjectsView"
 			 x:DataType="local:ProjectsViewModel"
-			 x:CompileBindings="True">
+			 x:CompileBindings="True"
+			 
+			 DragDrop.AllowDrop="True"
+			 Background="Transparent">
 
 	<Design.DataContext>
 		<local:ProjectsViewModel />
 	</Design.DataContext>
 
 	<StackPanel>
-		<Grid>
+		<Panel>
 			<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-				<Button Content="Open" Classes="" Margin="8,0"/>
-				<Button Content="New Project" Theme="{StaticResource SolidButton}" Classes=""/>
+				<Button Content="Open" Classes="" Margin="8,0"
+						Command="{Binding OpenCommand}"/>
+				<Button Content="New Project" Theme="{StaticResource SolidButton}"
+						Command="{Binding NewCommand}"/>
 			</StackPanel>
-		</Grid>
+		</Panel>
+
+		<DataGrid>
+			
+		</DataGrid>
 	</StackPanel>
 
 </UserControl>
