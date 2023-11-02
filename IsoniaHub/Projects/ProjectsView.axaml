@@ -28,9 +28,32 @@
 			</StackPanel>
 		</Panel>
 
-		<DataGrid>
-			
-		</DataGrid>
+		<ItemsControl ItemsSource="{Binding Projects}" Margin="0,8">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Border Background="{StaticResource Background-1-SolidColorBrush}"
+							BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
+							BorderThickness="1" CornerRadius="5"
+							Margin="0,8" Padding="8">
+						<StackPanel>
+							<TextBlock Text="{Binding Name}"
+                                       VerticalAlignment="Center"
+									   Theme="{StaticResource SubTitle}"
+									   Classes="H6"/>
+							<TextBlock Text="{Binding ProjectPath}"
+                                       VerticalAlignment="Center"
+									   Classes="Secondary"/>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ItemsControl>
 	</StackPanel>
 
 </UserControl>

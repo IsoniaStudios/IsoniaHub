@@ -37,8 +37,8 @@
 		<Border BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
 			    BorderThickness="0,0,0,1"
 				Padding="10" >
-			<TextBlock Theme="{StaticResource Title}"
-					   Classes="Secondary H8"
+			<TextBlock Theme="{StaticResource SubTitle}"
+					   Classes="Secondary H7"
 					   VerticalAlignment="Center">
 				<Run Text="{Binding Title, Mode=OneTime}"/>
 				<Run Text="{Binding Version, Mode=OneTime, Converter={StaticResource VersionConverter}, ConverterParameter=3}"/>

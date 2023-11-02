@@ -18,6 +18,7 @@ public class EditorsViewModel : ViewModelBase
     public RelayCommand InstallCommand { get; }
     private void Install(object? _)
     {
+        Editors.Add(Editor.RandomEditor);
     }
 
     public RelayCommand LocateCommand { get; }
@@ -25,6 +26,14 @@ public class EditorsViewModel : ViewModelBase
     {
         // open somthing idk
         AddFromPath(null);
+    }
+
+    public RelayCommand UninstallCommand { get; }
+    private void Uninstall(object? editorObject)
+    {
+        if (editorObject is not Editor editor)
+            return;
+        Editors.Remove(editor);
     }
 
     internal void AddFromPath(Uri path)
@@ -38,6 +47,7 @@ public class EditorsViewModel : ViewModelBase
 
         LocateCommand = new RelayCommand(Locate);
         InstallCommand = new RelayCommand(Install);
+        UninstallCommand = new RelayCommand(Uninstall);
 
         // Dispatch a search for installed editors
         Task.Run(SearchForEditors);
@@ -45,6 +55,6 @@ public class EditorsViewModel : ViewModelBase
 
     private void SearchForEditors()
     {
-
+        Editors.Add(Editor.RandomEditor);
     }
 }

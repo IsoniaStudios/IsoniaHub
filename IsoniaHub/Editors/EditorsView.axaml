@@ -27,10 +27,41 @@
 						Command="{Binding InstallCommand}"/>
 			</StackPanel>
 		</Panel>
-
-		<ItemsPresenter>
+		
+		<ItemsControl ItemsSource="{Binding Editors}" Margin="0,8">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Border Background="{StaticResource Background-1-SolidColorBrush}"
+							BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
+							BorderThickness="1" CornerRadius="5"
+							Margin="0,8" Padding="8">
+						<Panel>
+							<StackPanel>
+								<TextBlock Text="{Binding Name}"
+										   VerticalAlignment="Center"
+										   Theme="{StaticResource SubTitle}"
+										   Classes="H6"/>
+								<TextBlock Text="{Binding EditorPath}"
+										   VerticalAlignment="Center"
+										   Classes="Secondary"/>
+							</StackPanel>
+							<Button VerticalAlignment="Center" HorizontalAlignment="Right"
+									Theme="{StaticResource SolidButton}" Classes="Danger Square"
+									Command="{Binding $parent[ItemsControl].((local:EditorsViewModel)DataContext).UninstallCommand}"
+									CommandParameter="{Binding .}">
+								<PathIcon Data="{StaticResource DeleteIcon}" />
+							</Button>
+						</Panel>
+					</Border>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
 			
-		</ItemsPresenter>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ItemsControl>
 	</StackPanel>
 
 

@@ -18,6 +18,7 @@ public class ProjectsViewModel : ViewModelBase
     public RelayCommand NewCommand { get; }
     private void New(object? _)
     {
+        Projects.Add(Project.RandomProject);
     }
 
     public RelayCommand OpenCommand { get; }
@@ -45,6 +46,6 @@ public class ProjectsViewModel : ViewModelBase
 
     private void SearchForProjects()
     {
-        projects.Add(new Project {  });
+        Projects.Add(Project.RandomProject);
     }
 }
