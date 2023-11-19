@@ -15,17 +15,17 @@ public class EditorsViewModel : ViewModelBase
 
     public ObservableCollection<Editor> Editors  { get; } = new();
 
-    public RelayCommand InstallCommand { get; }
-    private void Install(object? _)
-    {
-        Editors.Add(Editor.RandomEditor);
-    }
-
     public RelayCommand LocateCommand { get; }
     private void Locate(object? _)
     {
         // open somthing idk
         AddFromPath(null);
+    }
+
+    public RelayCommand InstallCommand { get; }
+    private void Install(object? _)
+    {
+        Editors.Add(Editor.RandomEditor);
     }
 
     public RelayCommand UninstallCommand { get; }
@@ -34,6 +34,14 @@ public class EditorsViewModel : ViewModelBase
         if (editorObject is not Editor editor)
             return;
         Editors.Remove(editor);
+    }
+
+    public RelayCommand OpenFolderCommand { get; }
+    private void OpenFolder(object? editorObject)
+    {
+        if (editorObject is not Editor editor)
+            return;
+        
     }
 
     internal void AddFromPath(Uri path)
@@ -48,6 +56,7 @@ public class EditorsViewModel : ViewModelBase
         LocateCommand = new RelayCommand(Locate);
         InstallCommand = new RelayCommand(Install);
         UninstallCommand = new RelayCommand(Uninstall);
+        OpenFolderCommand = new RelayCommand(OpenFolder);
 
         // Dispatch a search for installed editors
         Task.Run(SearchForEditors);

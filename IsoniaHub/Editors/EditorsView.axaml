@@ -16,8 +16,8 @@
 		<local:EditorsViewModel />
 	</Design.DataContext>
 
-	<StackPanel>
-		<Panel>
+	<Grid RowDefinitions="Auto,*">
+		<Panel Margin="16">
 			<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -27,42 +27,50 @@
 						Command="{Binding InstallCommand}"/>
 			</StackPanel>
 		</Panel>
-		
-		<ItemsControl ItemsSource="{Binding Editors}" Margin="0,8">
-			<ItemsControl.ItemTemplate>
-				<DataTemplate>
-					<Border Background="{StaticResource Background-1-SolidColorBrush}"
-							BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
-							BorderThickness="1" CornerRadius="5"
-							Margin="0,8" Padding="8">
-						<Panel>
-							<StackPanel>
-								<TextBlock Text="{Binding Name}"
-										   VerticalAlignment="Center"
-										   Theme="{StaticResource SubTitle}"
-										   Classes="H6"/>
-								<TextBlock Text="{Binding EditorPath}"
-										   VerticalAlignment="Center"
-										   Classes="Secondary"/>
-							</StackPanel>
-							<Button VerticalAlignment="Center" HorizontalAlignment="Right"
-									Theme="{StaticResource SolidButton}" Classes="Danger Square"
-									Command="{Binding $parent[ItemsControl].((local:EditorsViewModel)DataContext).UninstallCommand}"
-									CommandParameter="{Binding .}">
-								<PathIcon Data="{StaticResource DeleteIcon}" />
-							</Button>
-						</Panel>
-					</Border>
-				</DataTemplate>
-			</ItemsControl.ItemTemplate>
-			
-			<ItemsControl.ItemsPanel>
-				<ItemsPanelTemplate>
-					<StackPanel/>
-				</ItemsPanelTemplate>
-			</ItemsControl.ItemsPanel>
-		</ItemsControl>
-	</StackPanel>
 
+		<ScrollViewer Padding="16,0" Grid.Row="1">
+			<ItemsControl ItemsSource="{Binding Editors}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border Background="{StaticResource Background-1-SolidColorBrush}"
+								BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
+								BorderThickness="1" CornerRadius="5"
+								Margin="0,0,0,8" Padding="12,10">
+							<Panel>
+								<StackPanel>
+									<TextBlock Text="{Binding Name}"
+											   VerticalAlignment="Center"
+											   Theme="{StaticResource SubTitle}"
+											   Classes="H6"/>
+									<TextBlock Text="{Binding EditorPath}"
+											   VerticalAlignment="Center"
+											   Classes="Secondary"/>
+								</StackPanel>
+								<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+									<Button Classes="Square" 
+											Command="{Binding $parent[ItemsControl].((local:EditorsViewModel)DataContext).OpenFolderCommand}"
+											CommandParameter="{Binding .}">
+										<PathIcon Data="{StaticResource OpenFolderIcon}" />
+									</Button>
+									<Panel Width="8"/>
+									<Button Classes="Error Indifferent Square"
+											Command="{Binding $parent[ItemsControl].((local:EditorsViewModel)DataContext).UninstallCommand}"
+											CommandParameter="{Binding .}">
+										<PathIcon Data="{StaticResource DeleteIcon}" />
+									</Button>
+								</StackPanel>
+							</Panel>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
 
 </UserControl>

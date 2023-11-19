@@ -16,8 +16,8 @@
 		<local:ProjectsViewModel />
 	</Design.DataContext>
 
-	<StackPanel>
-		<Panel>
+	<Grid RowDefinitions="Auto,*">
+		<Panel Margin="16">
 			<TextBlock Text="{Binding Title, Mode=OneTime}" Theme="{StaticResource Title}" Classes="H3"/>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -28,32 +28,34 @@
 			</StackPanel>
 		</Panel>
 
-		<ItemsControl ItemsSource="{Binding Projects}" Margin="0,8">
-			<ItemsControl.ItemTemplate>
-				<DataTemplate>
-					<Border Background="{StaticResource Background-1-SolidColorBrush}"
-							BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
-							BorderThickness="1" CornerRadius="5"
-							Margin="0,8" Padding="8">
-						<StackPanel>
-							<TextBlock Text="{Binding Name}"
-                                       VerticalAlignment="Center"
-									   Theme="{StaticResource SubTitle}"
-									   Classes="H6"/>
-							<TextBlock Text="{Binding ProjectPath}"
-                                       VerticalAlignment="Center"
-									   Classes="Secondary"/>
-						</StackPanel>
-					</Border>
-				</DataTemplate>
-			</ItemsControl.ItemTemplate>
+		<ScrollViewer Padding="16,0" Grid.Row="1">
+			<ItemsControl ItemsSource="{Binding Projects}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border Background="{StaticResource Background-1-SolidColorBrush}"
+								BorderBrush="{StaticResource Fill-1-SolidColorBrush}"
+								BorderThickness="1" CornerRadius="5"
+								Margin="0,0,0,8" Padding="12,10">
+							<StackPanel>
+								<TextBlock Text="{Binding Name}"
+										   VerticalAlignment="Center"
+										   Theme="{StaticResource SubTitle}"
+										   Classes="H6"/>
+								<TextBlock Text="{Binding ProjectPath}"
+										   VerticalAlignment="Center"
+										   Classes="Secondary"/>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
 
-			<ItemsControl.ItemsPanel>
-				<ItemsPanelTemplate>
-					<StackPanel/>
-				</ItemsPanelTemplate>
-			</ItemsControl.ItemsPanel>
-		</ItemsControl>
-	</StackPanel>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
 
 </UserControl>

@@ -54,7 +54,7 @@
 					Padding="12">
 				<ListBox ItemsSource="{Binding Tabs, Mode=OneTime}" SelectedItem="{Binding SelectedTab}" />
 			</Border>
-			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}" Padding="16">
+			<ContentControl Content="{Binding SelectedTab, Mode=OneWay}">
 				<ContentControl.DataTemplates>
 					<DataTemplate DataType="{x:Type Projects:ProjectsViewModel}">
 						<Projects:ProjectsView/>
