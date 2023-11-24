@@ -28,7 +28,7 @@
 			</StackPanel>
 		</Panel>
 
-		<ScrollViewer Padding="16,0" Grid.Row="1">
+		<ScrollViewer Margin="16,0" Padding="0" Grid.Row="1">
 			<ItemsControl ItemsSource="{Binding Editors}">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>
@@ -42,9 +42,9 @@
 											   VerticalAlignment="Center"
 											   Theme="{StaticResource SubTitle}"
 											   Classes="H6"/>
-									<TextBlock Text="{Binding EditorPath}"
-											   VerticalAlignment="Center"
-											   Classes="Secondary"/>
+									<SelectableTextBlock Text="{Binding EditorPath}"
+														 VerticalAlignment="Center"
+														 Classes="Secondary"/>
 								</StackPanel>
 								<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 									<Button Classes="Square" 
