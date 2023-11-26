@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+using System.Reflection;
 
 [assembly: AssemblyTitle("Isonia Hub")]
 [assembly: AssemblyDescription("A Hub for the Isonia Editor")]
